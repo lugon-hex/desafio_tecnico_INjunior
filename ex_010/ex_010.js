@@ -8,7 +8,7 @@ function adicionarJogador(nome, idade, pos, points) {
 function buscarPorPosicao(searchPos) {
     const playerInPos = time.filter(x => x.pos.toLowerCase() === searchPos.toLowerCase())
     if (playerInPos.length == 0) {
-        alert(`Nenhum jogador encontrado na posição "${searchPos}".`)
+        return `Nenhum jogador encontrado na posição "${searchPos}".`
     } else {
         let resultado = `Jogadores na posição: ${searchPos}\n`
         playerInPos.forEach(x => {resultado += player2str(x);})
@@ -69,8 +69,10 @@ do {
         case "2":
             let searchPos = prompt("Digite a posição que deseja buscar:")
             let resultado;
-            if (searchPos !== "" && searchPos !== null) resultado = buscarPorPosicao(searchPos)
-            alert(resultado);
+            if (searchPos !== "" && searchPos !== null) {
+                resultado = buscarPorPosicao(searchPos)
+                alert(resultado);
+            }
             break
         case "3":
             let teamList = listarTime()
